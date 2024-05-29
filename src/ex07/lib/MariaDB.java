@@ -1,0 +1,29 @@
+package ex07.lib;
+
+public class MariaDB implements DB{
+
+    private String path;
+
+    // SQL 쿼리 전송 (1은 성공, -1은 실패)
+    public int excute(String sql){
+
+        if (path == null){
+            System.out.println("path : null point error");
+        }
+
+        if (sql.equals("select")){
+            System.out.println("query excute : " +path+"/"+sql);
+        }else{
+            System.out.println("query fail : syntax error" );
+            return -1;
+        }
+
+        return 1;
+    }
+
+
+    // DBMS 서버 ip 세팅
+    public void setUrl(String path){
+        this.path = path;
+    }
+}
